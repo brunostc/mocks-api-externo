@@ -69,6 +69,7 @@ export function setResponse_cpf_regular(doc) {
 
 export function setResponse_cpf_irregular(doc) {
   return {
+    status_code: 200,
     data: {
       Result: [
         {
