@@ -1,4 +1,4 @@
-import { response_cpf_regular, setresponse_cpf_inexistente, setResponse_cpf_regular } from "../mocks/quickvalidationmock";
+import { response_cpf_regular, setResponse_cpf_inexistente, setResponse_cpf_irregular, setResponse_cpf_regular } from "../mocks/quickvalidationmock";
 import QuickValidationModel from "../models/QuickValidationModel";
 import { TYPE_DEFAULT_QUICKVALIDATION } from "../utils/contants";
 
@@ -16,10 +16,10 @@ function setdocument(doc) {
 
 function getResponseByType(type, request) {
   switch (type) {
-    case "response_cpf_irregular":
-      return setResponse_cpf_irregular(document_config);
     case "response_cpf_regular":
       return response_cpf_regular;
+    case "response_cpf_irregular_info":
+        return setResponse_cpf_irregular(document_config);
     case "response_cpf_regular_info":
       return setResponse_cpf_regular(document_config);
     case "response_cpf_inexistente_info":

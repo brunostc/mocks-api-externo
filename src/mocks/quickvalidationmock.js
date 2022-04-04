@@ -135,7 +135,7 @@ export function setResponse_cpf_irregular(doc) {
   };
 }
 
-export function setresponse_cpf_inexistente(doc) {
+export function setResponse_cpf_inexistente(doc) {
   return {
     status_code: 400,
     data: {
