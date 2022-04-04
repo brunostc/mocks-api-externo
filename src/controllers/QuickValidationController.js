@@ -16,12 +16,14 @@ function setdocument(doc) {
 
 function getResponseByType(type, request) {
   switch (type) {
+    case "response_cpf_irregular":
+      return setResponse_cpf_irregular(document_config);
     case "response_cpf_regular":
       return response_cpf_regular;
     case "response_cpf_regular_info":
-      return setResponse_cpf_regular(document_config)
+      return setResponse_cpf_regular(document_config);
     case "response_cpf_inexistente_info":
-      return setresponse_cpf_inexistente(document_config)
+      return setresponse_cpf_inexistente(document_config);
     case "validate_document_number_payload": {
       const quickvalidationModel = new QuickValidationModel();
       return quickvalidationModel.getResponseDocument(request);

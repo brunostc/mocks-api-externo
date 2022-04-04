@@ -67,6 +67,74 @@ export function setResponse_cpf_regular(doc) {
   };
 }
 
+export function setResponse_cpf_irregular(doc) {
+  return {
+    data: {
+      Result: [
+        {
+          MatchKeys: "doc{10841201943}",
+          BasicData: {
+            TaxIdNumber: "10841201943",
+            TaxIdCountry: "BRAZIL",
+            AlternativeIdNumbers: {
+              "RG - PR": "138547965",
+            },
+            ExtendedDocumentInformation: {
+              "RG - PR": {
+                DocumentNumber: "138547965",
+                DocumentLast4Digits: "7965",
+                DocumentIssuingAgency: "SSP",
+                DocumentIssuingStateCode: "PR",
+                CreationDate: "2019-10-24T22:12:18.515Z",
+                LastUpdateDate: "2019-10-24T22:12:18.515Z",
+                Sources: ["MEI-RF"],
+              },
+            },
+            Name: "JOHN DOE",
+            Aliases: {
+              CommonName: "JOHN DOE",
+              StandardizedName: "JOHN DOE",
+            },
+            Gender: "M",
+            NameWordCount: 5,
+            NumberOfFullNameNamesakes: 1,
+            NameUniquenessScore: 1.0,
+            FirstNameUniquenessScore: 0.001,
+            FirstAndLastNameUniquenessScore: 0.047619047619047616,
+            BirthDate: "1998-08-11T00:00:00Z",
+            Age: 23,
+            ZodiacSign: "LEAO",
+            ChineseSign: "Tiger",
+            BirthCountry: "BRASILEIRA",
+            MotherName: "JOHN DOE MOTHER",
+            FatherName: "JOHN DOE FATHER",
+            MaritalStatusData: {},
+            TaxIdStatus: "PENDENTE DE REGULARIZAÇÃO",
+            TaxIdOrigin: "RECEITA FEDERAL",
+            TaxIdFiscalRegion: "PR-SC",
+            HasObitIndication: false,
+            TaxIdStatusDate: "2021-11-30T00:00:00Z",
+            CreationDate: "2017-02-13T00:00:00Z",
+            LastUpdateDate: "2022-01-27T00:00:00Z",
+          },
+        },
+      ],
+      QueryId: "55fa56b8-fa9a-480c-a46e-2d8c38eb0f90",
+      ElapsedMilliseconds: 139.0,
+      QueryDate: "2022-03-07T14:35:11.606665Z",
+      Status: {
+        basic_data: [
+          {
+            Code: 0,
+            Message: "OK",
+          },
+        ],
+      },
+      Evidences: {},
+    },
+  };
+}
+
 export function setresponse_cpf_inexistente(doc) {
   return {
     status_code: 400,
