@@ -166,7 +166,7 @@ export function setResponse_cpf_inexistente(doc) {
   };
 }
 
-export function setResponse_cpf_dafault(doc) {
+export function setResponse_cpf_default(doc) {
   return {
     status_code: 200,
     data: {

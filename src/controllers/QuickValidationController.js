@@ -1,6 +1,5 @@
 import {
-  response_cpf_regular,
-  setResponse_cpf_dafault,
+  setResponse_cpf_default,
   setResponse_cpf_inexistente,
   setResponse_cpf_irregular,
   setResponse_cpf_regular,
@@ -27,8 +26,6 @@ function getdocument(q) {
 
 function getResponseByType(type, request, cpf = 0) {
   switch (type) {
-    case "response_cpf_regular":
-      return response_cpf_regular;
     case "response_cpf_irregular_info":
       return setResponse_cpf_irregular(document_config);
     case "response_cpf_regular_info":
@@ -40,7 +37,7 @@ function getResponseByType(type, request, cpf = 0) {
       return quickvalidationModel.getResponseDocument(request);
     }
     default:
-      return setResponse_cpf_dafault(cpf);
+      return setResponse_cpf_default(cpf);
   }
 }
 
