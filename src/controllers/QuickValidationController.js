@@ -1,5 +1,4 @@
 import {
-  setResponse_cpf_default,
   setResponse_cpf_inexistente,
   setResponse_cpf_irregular,
   setResponse_cpf_regular,
@@ -19,12 +18,7 @@ function setdocument(doc) {
   return document_config;
 }
 
-function getdocument(q) {
-  cpf = q;
-  return cpf.substring(3, 14);
-}
-
-function getResponseByType(type, request, cpf = 0) {
+function getResponseByType(type, request) {
   switch (type) {
     case "response_cpf_irregular_info":
       return setResponse_cpf_irregular(document_config);
@@ -37,7 +31,7 @@ function getResponseByType(type, request, cpf = 0) {
       return quickvalidationModel.getResponseDocument(request);
     }
     default:
-      return setResponse_cpf_default(cpf);
+      return setResponse_cpf_inexistente(document_config);
   }
 }
 
@@ -53,14 +47,9 @@ class QuickValidationController {
   }
 
   async index(request, response) {
-    try {
-      const document = getdocument(request?.body?.q);
       await response
-        .status(getResponseByType(type_response, request, document).status_code)
-        .send(getResponseByType(type_response, request, document).data);
-    } catch (error) {
-      await response.status(500).send({ message: "error" });
-    }
+        .status(getResponseByType(type_response, request).status_code)
+        .send(getResponseByType(type_response, request).data);
   }
 }
 
