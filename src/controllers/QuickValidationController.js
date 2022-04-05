@@ -23,7 +23,7 @@ function getResponseByType(type, request) {
     case "response_cpf_regular_info":
       return setResponse_cpf_regular(document_config);
     case "response_cpf_inexistente_info":
-      return setresponse_cpf_inexistente(document_config);
+      return setResponse_cpf_inexistente(document_config);
     case "validate_document_number_payload": {
       const quickvalidationModel = new QuickValidationModel();
       return quickvalidationModel.getResponseDocument(request);
