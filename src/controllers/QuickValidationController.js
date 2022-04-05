@@ -55,7 +55,9 @@ class QuickValidationController {
           await response
             .status(getResponseByType(type_response, request, document).status_code)
             .send(getResponseByType(type_response, request, document).data);
-      }
+          } catch (error) {
+            await response.status(500).send({ message: "error" });
+          }
 }
 
 export default QuickValidationController
