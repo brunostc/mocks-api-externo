@@ -22,10 +22,10 @@ export function setResponse_cpf_regular(doc) {
                 Sources: ["MEI-RF"],
               },
             },
-            Name: "João Gomes",
+            Name: "João dos Savos Gomes CPF" + doc,
             Aliases: {
-              CommonName: "João Gomes",
-              StandardizedName: "João Gomes",
+              CommonName: "João dos Savos Gomes CPF" + doc,
+              StandardizedName: "João dos Savos Gomes CPF" + doc,
             },
             Gender: "M",
             NameWordCount: 5,
@@ -38,8 +38,8 @@ export function setResponse_cpf_regular(doc) {
             ZodiacSign: "LEAO",
             ChineseSign: "Tiger",
             BirthCountry: "BRASILEIRA",
-            MotherName: "JOHN DOE MOTHER",
-            FatherName: "JOHN DOE FATHER",
+            MotherName: "Hermenegilda dos Savos Gomes " + doc,
+            FatherName: "Donruam Gomes " + doc,
             MaritalStatusData: {},
             TaxIdStatus: "REGULAR",
             TaxIdOrigin: "RECEITA FEDERAL",
@@ -73,9 +73,9 @@ export function setResponse_cpf_irregular(doc) {
     data: {
       Result: [
         {
-          MatchKeys: "doc{10841201943}",
+          MatchKeys: "doc{" + doc + "}",
           BasicData: {
-            TaxIdNumber: "10841201943",
+            TaxIdNumber: doc,
             TaxIdCountry: "BRAZIL",
             AlternativeIdNumbers: {
               "RG - PR": "138547965",
@@ -91,10 +91,10 @@ export function setResponse_cpf_irregular(doc) {
                 Sources: ["MEI-RF"],
               },
             },
-            Name: "JOHN DOE",
+            Name: "Enedino Amâncio Souto CPF" + doc,
             Aliases: {
-              CommonName: "JOHN DOE",
-              StandardizedName: "JOHN DOE",
+              CommonName: "Enedino Amâncio Souto CPF" + doc,
+              StandardizedName: "Enedino Amâncio Souto CPF" + doc,
             },
             Gender: "M",
             NameWordCount: 5,
@@ -107,8 +107,8 @@ export function setResponse_cpf_irregular(doc) {
             ZodiacSign: "LEAO",
             ChineseSign: "Tiger",
             BirthCountry: "BRASILEIRA",
-            MotherName: "JOHN DOE MOTHER",
-            FatherName: "JOHN DOE FATHER",
+            MotherName: "Jurema Amâncio Souto " + doc,
+            FatherName: "Durval Amâncio Souto " + doc,
             MaritalStatusData: {},
             TaxIdStatus: "PENDENTE DE REGULARIZAÇÃO",
             TaxIdOrigin: "RECEITA FEDERAL",
