@@ -1,4 +1,4 @@
-import { response_cpf_regular, setResponse_cpf_inexistente, setResponse_cpf_irregular, setResponse_cpf_regular } from "../mocks/quickvalidationmock";
+import { response_cpf_regular, setResponse_cpf_dafault, setResponse_cpf_inexistente, setResponse_cpf_irregular, setResponse_cpf_regular } from "../mocks/quickvalidationmock";
 import QuickValidationModel from "../models/QuickValidationModel";
 import { TYPE_DEFAULT_QUICKVALIDATION } from "../utils/contants";
 
@@ -14,7 +14,12 @@ function setdocument(doc) {
   return document_config;
 }
 
-function getResponseByType(type, request) {
+function getdocument(q) {
+  cpf = q
+  return cpf.substring(3, 14)
+}
+
+function getResponseByType(type, request, cpf = 0) {
   switch (type) {
     case "response_cpf_regular":
       return response_cpf_regular;
@@ -29,7 +34,7 @@ function getResponseByType(type, request) {
       return quickvalidationModel.getResponseDocument(request);
     }
     default:
-      return response_cpf_regular;
+      return setResponse_cpf_dafault(cpf);
   }
 }
 
@@ -45,9 +50,11 @@ class QuickValidationController {
       }
     
       async index(request, response) {
-        await response
-          .status(getResponseByType(type_response, request).status_code)
-          .send(getResponseByType(type_response, request).data);
+        try {
+          const document = getdocument(request?.body?.q);
+          await response
+            .status(getResponseByType(type_response, request, document).status_code)
+            .send(getResponseByType(type_response, request, document).data);
       }
 }
 
