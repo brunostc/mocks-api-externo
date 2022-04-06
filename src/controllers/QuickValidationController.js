@@ -8,9 +8,15 @@ import { TYPE_DEFAULT_QUICKVALIDATION } from "../utils/contants";
 
 let type_response = TYPE_DEFAULT_QUICKVALIDATION;
 let document_config = "";
+let resps = [];
 
 function setType(type) {
+  resps[document_config] = type;
   return (type_response = type ? type : TYPE_DEFAULT_QUICKVALIDATION);
+}
+
+function getdocument(doc) {
+  document_config = doc.substring(4,15)
 }
 
 function setdocument(doc) {
@@ -18,7 +24,8 @@ function setdocument(doc) {
   return document_config;
 }
 
-function getResponseByType(type, request) {
+function getResponseByType(request) {
+  let type = resps[document_config]
   switch (type) {
     case "response_cpf_irregular_info":
       return setResponse_cpf_irregular(document_config);
@@ -31,25 +38,39 @@ function getResponseByType(type, request) {
       return quickvalidationModel.getResponseDocument(request);
     }
     default:
-      return setResponse_cpf_inexistente(document_config);
+      return setResponse_cpf_regular(document_config);
   }
 }
 
 class QuickValidationController {
+  async listdocs(request, response) {
+    try {
+      const documents = resps;
+      await response.status(200).send({documents});
+    } catch (error) {
+      await response.status(500).send({ message: "error" });
+    }
+  }
+
   async config(request, response) {
     try {
-      const type = setType(request?.body?.type);
       const document = setdocument(request?.body?.doc);
-      await response.status(200).send({ type, document });
+      const type = setType(request?.body?.type);
+      await response.status(200).send({ type, document});
     } catch (error) {
       await response.status(500).send({ message: "error" });
     }
   }
 
   async index(request, response) {
+    try {
+      getdocument(request?.body?.q);
       await response
-        .status(getResponseByType(type_response, request).status_code)
-        .send(getResponseByType(type_response, request).data);
+        .status(getResponseByType(request).status_code)
+        .send(getResponseByType(request).data);
+    } catch (error) {
+      await response.status(500).send({ message: "error" });
+    }
   }
 }
 

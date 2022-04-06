@@ -6,5 +6,6 @@ const quickvalidation = new QuickValidation();
 //
 routes.post("/peoplev2", quickvalidation.index);
 routes.post("/peoplev2/config", quickvalidation.config);
+routes.post("/peoplev2/listdocs", quickvalidation.listdocs);
 
 export default routes;
