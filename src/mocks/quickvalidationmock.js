@@ -1,4 +1,16 @@
+import { NAME_RANDOM } from "../utils/contants";
+import { LASTNAME_RANDOM } from "../utils/contants";
+
+function setName() {
+  let Name = uniqueRandomArray(NAME_RANDOM)
+  let LastName = uniqueRandomArray(LASTNAME_RANDOM)
+  return Name + ' ' + LastName
+}
+
+let Name_Full = ''
+
 export function setResponse_cpf_regular(doc) {
+  Name_Full = setName()
   return {
     status_code: 200,
     data: {
@@ -22,10 +34,10 @@ export function setResponse_cpf_regular(doc) {
                 Sources: ["MEI-RF"],
               },
             },
-            Name: "João dos Savos Gomes CPF" + doc,
+            Name: Name_Full + " CPF" + doc,
             Aliases: {
-              CommonName: "João dos Savos Gomes CPF" + doc,
-              StandardizedName: "João dos Savos Gomes CPF" + doc,
+              CommonName: Name_Full + " CPF" + doc,
+              StandardizedName: Name_Full + " CPF" + doc,
             },
             Gender: "M",
             NameWordCount: 5,
