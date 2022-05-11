@@ -2,15 +2,15 @@ import { NAME_RANDOM } from "../utils/contants";
 import { LASTNAME_RANDOM } from "../utils/contants";
 
 function setName() {
-  let Name = uniqueRandomArray(NAME_RANDOM)
-  let LastName = uniqueRandomArray(LASTNAME_RANDOM)
+  let Name = NAME_RANDOM[Math.floor(Math.random() * NAME_RANDOM.length)]
+  let LastName = LASTNAME_RANDOM[Math.floor(Math.random() * LASTNAME_RANDOM.length)]
   return Name + ' ' + LastName
 }
 
-let Name_Full = ''
+let Name_Full = '';
 
 export function setResponse_cpf_regular(doc) {
-  Name_Full = setName()
+  Name_Full = setName();
   return {
     status_code: 200,
     data: {
