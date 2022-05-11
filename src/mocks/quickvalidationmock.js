@@ -80,6 +80,7 @@ export function setResponse_cpf_regular(doc) {
 }
 
 export function setResponse_cpf_irregular(doc) {
+  Name_Full = setName();
   return {
     status_code: 200,
     data: {
@@ -103,10 +104,10 @@ export function setResponse_cpf_irregular(doc) {
                 Sources: ["MEI-RF"],
               },
             },
-            Name: "Enedino Amâncio Souto CPF" + doc,
+            Name: Name_Full + " CPF" + doc,
             Aliases: {
-              CommonName: "Enedino Amâncio Souto CPF" + doc,
-              StandardizedName: "Enedino Amâncio Souto CPF" + doc,
+              CommonName: Name_Full + " CPF" + doc,
+              StandardizedName: Name_Full + " CPF" + doc,
             },
             Gender: "M",
             NameWordCount: 5,
@@ -179,6 +180,7 @@ export function setResponse_cpf_inexistente(doc) {
 }
 
 export function setResponse_cpf_default(doc) {
+  Name_Full = setName();
   return {
     status_code: 200,
     data: {
@@ -202,10 +204,10 @@ export function setResponse_cpf_default(doc) {
                 Sources: ["MEI-RF"],
               },
             },
-            Name: "João Gomes CPF" + doc,
+            Name: Name_Full + " CPF" + doc,
             Aliases: {
-              CommonName: "João Gomes CPF" + doc,
-              StandardizedName: "João Gomes CPF" + doc,
+              CommonName: Name_Full + " CPF" + doc,
+              StandardizedName: Name_Full + " CPF" + doc,
             },
             Gender: "M",
             NameWordCount: 5,
