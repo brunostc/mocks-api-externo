@@ -1,7 +1,7 @@
-export function putsubmember() {
+export default function sub_member() {
     return {
         status_code: 201,
-    data: {
+        data: {
             sn: "FRR3DTLHGJ7DPB",
             external_id: "55dde3b8-c4e8-4606-bad8-b6e0cf609e53",
             level: 10,
