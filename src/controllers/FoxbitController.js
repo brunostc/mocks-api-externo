@@ -1,7 +1,7 @@
-import sub_member from "../mocks/sub_member";
+import sub_member_default from "../mocks/foxbit/submember";
 
 function responseSub_member() {
-    return sub_member
+    return await sub_member_default
 };
 
 class FoxbitController {
